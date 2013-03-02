@@ -1,0 +1,14 @@
+http://search.twitter.com/search.json?q=%23THFCvAFC+score%20OR%20prediction&rpp=100
+
+Generate All purmutations of "1","2","3","4","5","6","7","8","9","10"," - "," / "," : ","-","/",":"
+get rid of any with " - "," / "," : ","-","/",":" at the end or beginning 
+Concatinate them into strings 
+List all of those
+set a number variable named for each permutation
+
+
+Search each tweet for each of the items in the List
+if the tweet has one of the listed items then 
+	increase the count of the relevant variable by one
+
+
