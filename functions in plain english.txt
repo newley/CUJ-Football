@@ -11,4 +11,6 @@ Search each tweet for each of the items in the List
 if the tweet has one of the listed items then 
 	increase the count of the relevant variable by one
 
+Test 2
+
 
