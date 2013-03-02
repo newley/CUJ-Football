@@ -1,0 +1,63 @@
+Formats, Protocols, Algorithms
+Mark Hansen
+Spring 2013
+
+Khadeeja Safdar
+Fergus Pitt
+Peter Ward
+Newley Purnell
+
+Homework Two
+
+Overview:
+
+For this assignment, we created a way to pull data from Twitter to gauge score predictions for a closely watched soccer game in England.
+
+The match we targeted was one between two London-based rivals, Tottenham Hotspur Football Club and Arsenal Football Club, two top sides in the English Premier League. The game kicked off at 4 p.m. London time on Sunday March 3, 2013.
+
+Strategy:
+
+Our goal was to pull Tweets from the Twitter API based on the specific text users employed to describe the game. 
+
+We searched Tweet according to two common hashtags and a representative string of text. These search terms were:
+
+#thfcvafc
+#thfcvsafc
+tottenham arsenal prediction
+
+(The two hashtags are based on abbreviations for Tottenham Hotspur Football Club vs. Arsenal Football Club.)
+
+After importing the data from relevant Tweets, we created a loop in which we isolated the Tweets’ text from other information.
+
+ 
+Our code was as follows:
+
+#set up API call
+
+from urllib import urlopen
+from urllib import urlencode
+
+
+#create a url to look for the last 100 search results with #thfcvafc
+
+prefix = "http://search.twitter.com/search.json"
+urlencode ({"q":"#thfcvafc"})
+urlencode ({"q":"#thfcvafc","rpp":100})
+urlencode ({"q":"#thfcvafc","rpp":100,"result_type":"recent"})
+suffix = "?"+ urlencode({"q":"#thfcvafc","rpp":100,"result_type":"recent"})
+url = prefix+suffix
+
+#read the data
+
+data = urlopen(url).read()
+from json import loads
+response = loads(data)
+tweets = response["results"] 
+
+#isolate the text of the tweets from the data
+
+for t in tweets:
+if t("text"):
+tweet = t["text"]
+
+Next, we isolated the numbers representing scores. 
